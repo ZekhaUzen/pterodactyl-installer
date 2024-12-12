@@ -3,7 +3,7 @@
 set -e
 
 # Pterodactyl Installer 
-# Copyright Forestracks 2022-2024
+# Copyright Zekha 2024
 
 output() {
   echo "* ${1}"
