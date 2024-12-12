@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Pterodactyl Installer 
-# Copyright Forestracks 2022-2024
+# Copyright Zekha 2024
 
 # ------------------ Variables ----------------- #
 # Path (export everything that is possible, doesn't matter that it exists already)
@@ -563,7 +563,7 @@ wings_systemd
 
 # ----------------- Print Credentials ---------------- #
 print_brake 62
-output "Pterodactyl Panel installed successfully!"
+output "SELAMAT PTERODACTYL PANEL BERHASIL DI INSTALL"
 output "Panel URL: http://$IP_ADDRESS"
 output "Username: admin"
 output "Password: $USER_PASSWORD"
