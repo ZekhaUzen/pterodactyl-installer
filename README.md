@@ -1,14 +1,14 @@
 # Zekha Pterodactyl Installer
 
-## Installation:
-1) To get started, it's important to ensure that your machine is freshly reinstalled if you've made any changes to it beforehand. 
-2) Point a DNS A-Record to your machine's IP address, such as panel.forestracks.com to 192.168.53.72.
-3) To download and run the installer, simply enter the following command into your terminal and follow the prompts:
+## Instalasi:
+1) Untuk memulai, penting untuk memastikan bahwa mesin Anda baru saja diinstal ulang jika Anda telah melakukan perubahan apa pun sebelumnya. 
+2) Arahkan DNS A-Record ke alamat IP VPS Anda.
+3) Untuk mengunduh dan menjalankan penginstal, cukup masukkan perintah berikut ke terminal Anda dan ikuti petunjuknya:
 ```
 bash <(curl -Ss https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/install.sh || wget -O - https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/install.sh) auto
 ```
 
-## Compatible Operating Systems:
+## Sistem Operasi yang Kompatibel:
 | Operating System | Version | Supported          | PHP Version |
 | ---------------- | ------- | ------------------ | ----------- |
 | Ubuntu           | 20.04   | :white_check_mark: | 8.3         |
