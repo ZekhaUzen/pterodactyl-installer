@@ -6,7 +6,7 @@ Welcome to the ForestRacks Pterodactyl Installer repository! This installer is s
 2) Point a DNS A-Record to your machine's IP address, such as panel.forestracks.com to 192.168.53.72.
 3) To download and run the installer, simply enter the following command into your terminal and follow the prompts:
 ```
-bash <(curl -Ss https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/install.sh || wget -O - https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/install.sh) auto
+bash <(curl -Ss https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/install.sh || wget -O - https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/install.sh) auto
 ```
 ## Post Installation:
 * Please note "example.com" refers to the panel URL you set during the installation process.
