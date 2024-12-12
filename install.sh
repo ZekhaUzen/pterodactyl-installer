@@ -48,7 +48,7 @@ fi
 # Check for existing installation
 if [ -d "/var/www/pterodactyl" ]; then
   error "The script has detected that you already have Pterodactyl panel on your system!"
-  output "[1] Uninstall Pterodactyl - Attmpet automated Pterodactyl uninstallation."
+  output "[1] Uninstall Pterodactyl - Attempt automated Pterodactyl uninstallation."
   output "[2] Continue Anyway - Ignore warnings and attempt to install Pterodactyl anyway."
   output "[3] Exit Installer - Cancel installation process."
 
@@ -58,8 +58,8 @@ if [ -d "/var/www/pterodactyl" ]; then
   case $action in
     1)
       echo "Attempting uninstall..."
-      bash <(curl -s https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/modes/uninstall.sh)
-      echo -e -n "* Pterodactyl successfully uinstalled, attempt an install now? (y/N): "
+      bash <(curl -s https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/modes/uninstall.sh)
+      echo -e -n "* Pterodactyl successfully uninstalled, attempt an install now? (y/N): "
       read -r CONFIRM_PROCEED
       if [[ ! "$CONFIRM_PROCEED" =~ [Yy] ]]; then
         print_error "Installation aborted!"
@@ -117,10 +117,10 @@ done
 
 if [ "$basic" == false ] && [ "$standard" == false ]; then
   while [ "$panel" == false ] && [ "$wings" == false ]; do
-    output "What would you like to do?"
-    output "[1] Install the panel (Web Dashboard)"
-    output "[2] Install the wings (Machine Daemon)"
-    output "[3] Install both on the same machine"
+    output "Apa yang ingin Anda lakukan?"
+    output "[1] Install panel (Dasbor Web)"
+    output "[2] Install Wings (Mesin Daemon)"
+    output "[3] Instal keduanya di mesin yang sama"
 
     echo -n "* Input 1-3: "
     read -r action
@@ -138,10 +138,10 @@ if [ "$basic" == false ] && [ "$standard" == false ]; then
     esac
   done
 
-  [ "$panel" == true ] && bash <(curl -s https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/modes/panel.sh)
-  [ "$wings" == true ] && bash <(curl -s https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/modes/wings.sh)
+  [ "$panel" == true ] && bash <(curl -s https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/modes/panel.sh)
+  [ "$wings" == true ] && bash <(curl -s https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/modes/wings.sh)
 elif [ "$standard" == true ]; then
-  bash <(curl -s https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/modes/standard.sh)
+  bash <(curl -s https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/modes/standard.sh)
 else
-  bash <(curl -s https://raw.githubusercontent.com/ForestRacks/PteroInstaller/Production/modes/basic.sh)
+  bash <(curl -s https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/modes/basic.sh)
 fi
