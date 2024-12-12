@@ -20,7 +20,7 @@ error() {
 
 # Exit with error status code if user is not root
 if [[ $EUID -ne 0 ]]; then
-  error "This script must be executed with root privileges (sudo)." 1>&2
+  error "Skrip ini harus dijalankan dengan hak akses root (sudo)." 1>&2
   exit 1
 fi
 
@@ -39,42 +39,42 @@ if ! [ -x "$(command -v curl)" ]; then
   fi
   # Check if curl is installed
   if ! [ -x "$(command -v curl)" ]; then
-    echo "* curl is required in order for this script to work."
-    echo "* install using apt (Debian and derivatives) or yum/dnf (CentOS)"
+    echo "* curl diperlukan agar skrip ini dapat berfungsi."
+    echo "* install menggunakan apt (Debian dan turunannya) atau yum/dnf (CentOS)"
     exit 1
   fi
 fi
 
 # Check for existing installation
 if [ -d "/var/www/pterodactyl" ]; then
-  error "The script has detected that you already have Pterodactyl panel on your system!"
-  output "[1] Uninstall Pterodactyl - Attempt automated Pterodactyl uninstallation."
-  output "[2] Continue Anyway - Ignore warnings and attempt to install Pterodactyl anyway."
-  output "[3] Exit Installer - Cancel installation process."
-
+  error "Skrip mendeteksi bahwa Anda sudah memiliki panel Pterodactyl di sistem Anda!"
+  output "[1] Copot pemasangan Pterodactyl - Coba hapus instalan Pterodactyl otomatis."
+  output "[2] Tetap Lanjutkan - Abaikan peringatan dan tetap coba instal Pterodactyl."
+  output "[3] Keluar dari Penginstal - Batalkan proses instalasi."
+  
   echo -n "* Input 1-3: "
   read -r action
 
   case $action in
     1)
-      echo "Attempting uninstall..."
+      echo "Mencoba mencopot pemasangan..."
       bash <(curl -s https://raw.githubusercontent.com/ZekhaUzen/pterodactyl-installer/main/modes/uninstall.sh)
-      echo -e -n "* Pterodactyl successfully uninstalled, attempt an install now? (y/N): "
+      echo -e -n "* Pterodactyl berhasil di-uninstall, coba instal sekarang? (y/T): "
       read -r CONFIRM_PROCEED
       if [[ ! "$CONFIRM_PROCEED" =~ [Yy] ]]; then
-        print_error "Installation aborted!"
+        print_error "Instalasi dibatalkan!"
         exit 1
       fi
       ;;
     2)
-      echo "Attempting to proceed anyway..."
+      echo "Tetap mencoba untuk melanjutkan..."
       ;;
     3)
-      echo "Exiting installer..."
+      echo "Keluar dari penginstal..."
       exit 1
       ;;
     *)
-      echo "Invalid option. Please input a number between 1 and 3."
+      echo "Pilihan tidak valid. Silakan masukkan angka antara 1 dan 3."
       ;;
   esac
 fi
@@ -86,21 +86,23 @@ advanced=false
 
 panel=false
 wings=false
-
-output "Pterodactyl installation script"
-output "This script is not associated with the official Pterodactyl Project. PteroInstaller comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law."
+output " _____   ________ __ __  _____ "
+output "/__  /  / ____/ //_// / / /   |"
+output "  / /  / __/ / ,<  / /_/ / /| |"
+output " / /__/ /___/ /| |/ __  / ___ |"
+output "/____/_____/_/ |_/_/ /_/_/  |_|"
+output "skrip instalasi Pterodactyl"
+output "Skrip ini tidak terkait dengan Proyek Pterodactyl resmi. PteroInstaller sama sekali TIDAK ADA GARANSI, sejauh diizinkan oleh hukum yang berlaku."
 output
-output "DISCLAIMER: This installer may not work as intended on all environments."
-
-output
+output "PENOLAKAN: Penginstal ini mungkin tidak berfungsi sebagaimana mestinya di semua lingkungan."
 
 while [ "$basic" == false ] && [ "$standard" == false ] && [ "$advanced" == false ]; do
-  output "What installation mode would you like to use?"
-  output "[1] Basic Installer - Install the panel and wings on your IP with very few prompts."
+  output "Mode instalasi apa yang ingin Anda gunakan?"
+  output "[1] Penginstal Dasar - Pasang panel dan sayap pada IP Anda dengan sedikit perintah."
   # output "[2] Standard installer - Install the panel and wings with prompts for an FQDN and SSL."
   # output "[3] Advanced installer - Install either the panel or wings with options like mail configuration"
 
-  echo -n "* Input 1-3: "
+  echo -n "* Input 1: "
   read -r action
 
   case $action in
